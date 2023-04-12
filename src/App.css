@@ -14,20 +14,13 @@ main {
 }
 .flex--container {
   width: 300px;
-  height: 150px;
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
 }
 .dies--boxes {
   display: flex;
   flex-wrap: wrap;
-  width: 300px;
   justify-content: center;
-  align-content: center;
-  height: 100%;
-  margin: 0 auto;
 }
 
 .dies {
@@ -48,7 +41,6 @@ button {
   background: blue;
   color: white;
   border-radius: 8px;
-  text-decoration: noen;
   border: none;
   font-size: 16px;
   font-weight: 800;
