@@ -7,25 +7,40 @@ import Confetti from 'react-confetti'
 function App() {
 
   const [dice, setDice] = useState(newDice())
-
   const [tenzies, setTenzies] = useState(false)
 
+  const [counter, setCounter] = useState(0);
+  
+  const [start, setStart] = useState(false)
+  
 
+    useEffect(() => {
+      const timer =
+      start && setInterval(() => setCounter(counter + 1), 1000)
+      return () => clearInterval(timer)
+    },[counter, start])
+  
+  
+    console.log(start)
+   
   useEffect(() => {
     setTenzies(() => {
       const held = dice.every(el => el.isHeld)
       const firstValue = dice[0].value
       const allValue = dice.every(el => el.value === firstValue)
       if(held && allValue) {
+        setStart()
         setTenzies(true)
-        console.log("You won")
       }
-      tenzies ? setDice(newDice()) : ""
+      if(tenzies) {
+        setDice(newDice())
+        setCounter(0)
+      }
     })
-    
   },[dice])
   
   function handelDice(id) {
+    setStart(true)
     setDice(prevSet => prevSet.map(el => {
         return el.id === id ?
          {...el, isHeld: !el.isHeld} :
@@ -34,7 +49,8 @@ function App() {
     )
   }
 
-  function handleRoll(id){
+  function handleRoll(){
+    setStart(true)
     setDice(prevSet => prevSet.map(el => {
       return el.isHeld ? el : {
         value: Math.floor(Math.random() * 6) + 1,
@@ -64,8 +80,6 @@ function App() {
         id={el.id}
         toggle={() => handelDice(el.id)} 
         />
-      
-    
     ))
   return (
     <main>
@@ -83,6 +97,7 @@ function App() {
         </div>
         <button onClick={handleRoll}>{tenzies ?
          "New Game" : "Roll"}</button>
+      <div>Timer: {counter} sec</div>
       </div>
     </main>
   )
