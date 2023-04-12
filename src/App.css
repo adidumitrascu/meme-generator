@@ -6,14 +6,29 @@
   border-radius: 10px;
 }
 
+.title--container {
+  display: flex;
+  flex-direction: column;
+}
+
+.title,
+.instructions {
+  text-align: center;
+}
+.instructions {
+  margin: 0 auto;
+  margin-bottom: 30px;
+  padding: 0px 20px;
+}
 main {
   display: flex;
   justify-content: center;
   align-items: center;
   height: inherit;
+  flex-direction: column;
 }
 .flex--container {
-  width: 300px;
+  width: 350px;
   display: flex;
   flex-direction: column;
 }
@@ -23,12 +38,17 @@ main {
   justify-content: center;
 }
 
+.dies,
+button {
+  cursor: pointer;
+}
+
 .dies {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   margin: 6px;
   text-align: center;
-  line-height: 40px;
+  line-height: 50px;
   background: white;
   box-shadow: 0px 3px 2px #ddd;
   border-radius: 4px;
@@ -36,7 +56,7 @@ main {
 }
 
 button {
-  padding: 10px 35px;
+  padding: 15px 30px;
   margin: 48px;
   background: blue;
   color: white;
@@ -44,5 +64,12 @@ button {
   border: none;
   font-size: 16px;
   font-weight: 800;
-  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:active {
+  box-shadow: inset 0px 7px 10px -3px rgba(0, 0, 0, 0.7);
 }
