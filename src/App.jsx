@@ -8,9 +8,7 @@ function App() {
 
   const [dice, setDice] = useState(newDice())
   const [tenzies, setTenzies] = useState(false)
-
   const [counter, setCounter] = useState(0);
-  
   const [start, setStart] = useState(false)
   
 
@@ -20,9 +18,6 @@ function App() {
       return () => clearInterval(timer)
     },[counter, start])
   
-  
-    console.log(start)
-   
   useEffect(() => {
     setTenzies(() => {
       const held = dice.every(el => el.isHeld)
@@ -97,7 +92,7 @@ function App() {
         </div>
         <button onClick={handleRoll}>{tenzies ?
          "New Game" : "Roll"}</button>
-      <div>Timer: {counter} sec</div>
+      <div>Timer: {counter}s</div>
       </div>
     </main>
   )
