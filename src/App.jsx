@@ -80,7 +80,7 @@ function App() {
     <main>
       {tenzies && <Confetti />}
       <div className="title--container">
-        <h1 className="title">Tenzies</h1>
+        <h1 className="title">Swift Play</h1>
         <p className="instructions">
         Roll until all dice are the same. 
         Click each die to freeze it at its
